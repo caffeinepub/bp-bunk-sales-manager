@@ -1,0 +1,148 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Bharat Petroleum Brand Fonts */
+@font-face {
+  font-family: "Cabinet Grotesk";
+  src: url("/assets/fonts/CabinetGrotesk-Variable.woff2") format("woff2");
+  font-weight: 100 900;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Outfit";
+  src: url("/assets/fonts/Outfit-Variable.woff2") format("woff2");
+  font-weight: 100 900;
+  font-display: swap;
+}
+
+@layer base {
+  :root {
+    --radius: 0.75rem;
+
+    /* BP Blue: #003DA5 → OKLCH approx */
+    --background: 0.97 0.005 230;
+    --foreground: 0.12 0.025 230;
+
+    --card: 1 0 0;
+    --card-foreground: 0.12 0.025 230;
+
+    --popover: 1 0 0;
+    --popover-foreground: 0.12 0.025 230;
+
+    /* BP Deep Blue primary */
+    --primary: 0.30 0.12 250;
+    --primary-foreground: 0.99 0 0;
+
+    /* BP Yellow secondary */
+    --secondary: 0.88 0.16 90;
+    --secondary-foreground: 0.15 0.05 230;
+
+    --muted: 0.92 0.01 230;
+    --muted-foreground: 0.50 0.03 230;
+
+    /* BP Yellow accent */
+    --accent: 0.88 0.16 90;
+    --accent-foreground: 0.15 0.05 230;
+
+    --destructive: 0.577 0.245 27.325;
+    --destructive-foreground: 0.985 0 0;
+
+    --border: 0.87 0.01 230;
+    --input: 0.87 0.01 230;
+    --ring: 0.30 0.12 250;
+
+    /* Charts: Yellow, Blue, Dark Blue, Light Blue, Gold */
+    --chart-1: 0.88 0.16 90;
+    --chart-2: 0.30 0.12 250;
+    --chart-3: 0.20 0.08 250;
+    --chart-4: 0.55 0.10 250;
+    --chart-5: 0.75 0.14 90;
+
+    --sidebar: 0.20 0.08 250;
+    --sidebar-foreground: 0.99 0 0;
+    --sidebar-primary: 0.88 0.16 90;
+    --sidebar-primary-foreground: 0.15 0.05 230;
+    --sidebar-accent: 0.25 0.10 250;
+    --sidebar-accent-foreground: 0.99 0 0;
+    --sidebar-border: 0.30 0.08 250;
+    --sidebar-ring: 0.88 0.16 90;
+
+    /* Custom BP tokens */
+    --bp-blue: 0.30 0.12 250;
+    --bp-blue-dark: 0.20 0.08 250;
+    --bp-blue-light: 0.55 0.10 250;
+    --bp-yellow: 0.88 0.16 90;
+    --bp-yellow-dark: 0.78 0.17 85;
+    --bp-yellow-light: 0.95 0.12 90;
+  }
+
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    font-family: "Outfit", system-ui, sans-serif;
+    font-size: 16px;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: "Cabinet Grotesk", system-ui, sans-serif;
+    font-weight: 700;
+  }
+
+  input[type="number"]::-webkit-inner-spin-button,
+  input[type="number"]::-webkit-outer-spin-button {
+    opacity: 1;
+  }
+
+  @media print {
+    .no-print {
+      display: none !important;
+    }
+    .print-only {
+      display: block !important;
+    }
+    body {
+      background: white !important;
+      color: black !important;
+    }
+  }
+
+  .print-only {
+    display: none;
+  }
+}
+
+@layer utilities {
+  .bp-gradient {
+    background: linear-gradient(135deg, oklch(0.22 0.10 250) 0%, oklch(0.32 0.14 250) 100%);
+  }
+
+  .bp-yellow-gradient {
+    background: linear-gradient(135deg, oklch(0.82 0.18 88) 0%, oklch(0.90 0.14 92) 100%);
+  }
+
+  .bp-card-shadow {
+    box-shadow: 0 4px 6px -1px oklch(0.30 0.12 250 / 0.12), 0 2px 4px -2px oklch(0.30 0.12 250 / 0.08);
+  }
+
+  .bp-card-shadow-lg {
+    box-shadow: 0 10px 25px -5px oklch(0.30 0.12 250 / 0.15), 0 4px 10px -5px oklch(0.30 0.12 250 / 0.10);
+  }
+
+  .tile-hover {
+    @apply transition-all duration-200;
+  }
+
+  .tile-hover:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 12px 30px -5px oklch(0.30 0.12 250 / 0.20);
+  }
+
+  .tile-hover:active {
+    transform: translateY(-1px);
+  }
+}
